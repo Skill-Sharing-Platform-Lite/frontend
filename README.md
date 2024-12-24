@@ -88,6 +88,27 @@ Here’s how the code is organized:
 ├── package-lock.json
 └── .gitignore
 ```
+### How We Work as a Team
+
+**Tasks**: Each team has tasks to complete. Check in on the group  for what to do.
+
+**Branches**: Always create a new branch for your work. For example:
+```
+git checkout -b new_branch_name #this will create a new branch  
+```
+Commit Changes: Save your progress with a meaningful message:
+```
+git commit -m "Added login page design"
+```
+Push and Review: Push your changes to GitHub and ask for feedback. For example:
+```
+git push origin feature/add-login-page
+```
+If you're pushing a new branch that hasn't been created on the remote(inside github) yet, you can use:
+
+```
+git push -u origin your-branch-name  # change the your-branch-name with your actual branch name
+```
 
 ## 🔧 Common Commands
 
