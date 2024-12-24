@@ -31,7 +31,7 @@ Copy the front-end repository to your local machine:
 
 ```
 git clone https://github.com/Skill-Sharing-Platform-Lite/frontend.git
-cd SkillSharingFrontend
+cd frontend
 
 ```
 
@@ -57,14 +57,13 @@ This will open the app in your browser at **http://localhost:3000**.
 
 To make the front-end communicate with the back-end:
 
-Open the package.json file.
-Add this line:
+Open the package.json file then Add this line:
 
 ```
 "proxy": "http://localhost:5000"
 ```
 
-only add the above line if your package.json doesn't have one
+**NOTE** only add the above line if your package.json doesn't have one
 
 After that Save the file and restart the front-end:
 
