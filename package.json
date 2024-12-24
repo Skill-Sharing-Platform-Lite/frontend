@@ -8,8 +8,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.17"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +34,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
-
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
 }
