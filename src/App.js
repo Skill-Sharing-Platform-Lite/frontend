@@ -1,10 +1,31 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./Component/Header";
 
-function App() {
+import LoginPage from "./Component/LoginPage"; // You can create a HomePage component for this route
+import LoginForm from "./Component/LoginForm";
+
+const App = () => {
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (user) => {
+    setUser(user);
+  };
+
   return (
-   <h1 className='text-2xl text-center'> Hi There</h1>
-  
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/about" element={<Header />}></Route>
+      <Route path="/how-it-works" element={<Header />}></Route>
+      <Route path="/contact"element={<Header />}></Route>
+      
+      <Route path="/Forgot Password" element={<LoginPage />}></Route>
+      <Route path="/Sign Up" element={<LoginForm />} ></Route>
+    
+      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+    </Routes>
   );
-}
+};
 
 export default App;
