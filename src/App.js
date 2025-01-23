@@ -5,6 +5,7 @@ import Header from "./Component/Header";
 
 import LoginPage from "./Component/LoginPage"; // You can create a HomePage component for this route
 import LoginForm from "./Component/LoginForm";
+import Profile from "./Component/profile";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -22,7 +23,7 @@ const App = () => {
       
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
       <Route path="/Sign Up" element={<LoginForm />} ></Route>
-    
+    <Route path="/profile" element={<Profile/>}/>
       <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
     </Routes>
   );
