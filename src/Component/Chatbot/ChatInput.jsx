@@ -5,6 +5,9 @@ export const ChatInput = ({ onSend }) => {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null); // Create a ref for the file input
 
+  const maxFileSize = 5 * 1024 * 1024; // Maximum file size in bytes (5 MB)
+  const ALLOWED_FILE_TYPES = ["image/jpeg", "image/png", "application/pdf"]; // Allowed file types
+
   const handleSend = () => {
     if (message.trim() || file) {
       onSend(message.trim(), file);
@@ -16,7 +19,17 @@ export const ChatInput = ({ onSend }) => {
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     if (selectedFile) {
-      setFile(selectedFile); // Store the file object instead of just the file name
+      if (!ALLOWED_FILE_TYPES.includes(selectedFile.type)) {
+        alert("Invalid file type. Please upload a JPEG, PNG, or PDF file.");
+        return;
+      }
+      if (selectedFile.size > maxFileSize) {
+        alert(
+          "File size exceeds the 5 MB limit. Please upload a smaller file."
+        );
+        return;
+      }
+      setFile(selectedFile); // Store the file object if valid
     }
   };
 
@@ -34,6 +47,7 @@ export const ChatInput = ({ onSend }) => {
             ref={fileInputRef} // Attach the ref to the file input
             onChange={handleFileChange}
             style={{ display: "none" }} // Hide the file input
+            accept={ALLOWED_FILE_TYPES.join(",")}
           />
           <button
             className="lg:w-[40px] lg:h-[38px] xl:w-[44px] xl:h-[42px] relative"

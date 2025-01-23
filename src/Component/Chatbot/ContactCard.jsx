@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const ContactCard = ({ key, contact, isSelected, onSelect }) => {
+export const ContactCard = ({ contact, isSelected, onSelect }) => {
   return (
     <button
-      key={key}
+      key={contact?.id}
       onClick={() => onSelect(contact.id)}
       className={`flex flex-col !w-full max-w-sm ${
-        isSelected ? "!bg-[#dbeeff] bg-opacity-[86]  rounded-[10px]" : "bg-white"
+        isSelected
+          ? "!bg-[#dbeeff] bg-opacity-[86]  rounded-[10px]"
+          : "bg-white"
       }`}
       style={{
         border: "none",
@@ -25,8 +27,12 @@ export const ContactCard = ({ key, contact, isSelected, onSelect }) => {
         <div className="hidden sm:flex flex-col w-full">
           <div className="flex gap-3 lg:gap-5 justify-between items-start w-full">
             <div className="flex flex-col self-start">
-              <span className="text-start text-lg md:text-2xl line-clamp-1 xl:line-clamp-none">{contact.name}</span>
-              <span className="mt-1 text-base lg:text-lg line-clamp-1 xl:line-clamp-none">{contact.lastMessage}</span>
+              <span className="text-start text-lg md:text-2xl line-clamp-1 xl:line-clamp-none">
+                {contact.name}
+              </span>
+              <span className="mt-1 text-base lg:text-lg line-clamp-1 xl:line-clamp-none">
+                {contact.lastMessage}
+              </span>
             </div>
             {!isSelected && (
               <img

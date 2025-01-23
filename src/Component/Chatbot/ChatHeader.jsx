@@ -1,8 +1,7 @@
-// Header.js
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ChatHeader = ({}) => {
+const ChatHeader = () => {
   return (
     <header className="bg-white text-black w-full px-16 py-9">
       <nav className="container mx-auto flex justify-between items-center">

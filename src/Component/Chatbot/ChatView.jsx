@@ -67,55 +67,6 @@ const contacts = [
     isActive: true,
     isRead: false,
   },
-  // Add more contacts as needed
-];
-
-const messages = [
-  {
-    id: "1",
-    sender: {
-      name: "YIHUN M",
-      avatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/133954dd4dbbfb5bda459374ef00c7bd93a367d6af490859d133f88adb983e6d?placeholderIfAbsent=true&apiKey=d7aa41e166d24a01a8141c7c8f0568f0",
-    },
-    message: "Hello",
-    time: "11:30",
-    isCurrentUser: false,
-  },
-  {
-    id: "1",
-    sender: {
-      name: "YIHUN M",
-      avatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/133954dd4dbbfb5bda459374ef00c7bd93a367d6af490859d133f88adb983e6d?placeholderIfAbsent=true&apiKey=d7aa41e166d24a01a8141c7c8f0568f0",
-    },
-    message: "Hello",
-    time: "11:30",
-    isCurrentUser: true,
-  },
-  {
-    id: "1",
-    sender: {
-      name: "YIHUN M",
-      avatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/133954dd4dbbfb5bda459374ef00c7bd93a367d6af490859d133f88adb983e6d?placeholderIfAbsent=true&apiKey=d7aa41e166d24a01a8141c7c8f0568f0",
-    },
-    message: "Hello",
-    time: "11:30",
-    isCurrentUser: false,
-  },
-  {
-    id: "1",
-    sender: {
-      name: "YIHUN M",
-      avatar:
-        "https://cdn.builder.io/api/v1/image/assets/TEMP/133954dd4dbbfb5bda459374ef00c7bd93a367d6af490859d133f88adb983e6d?placeholderIfAbsent=true&apiKey=d7aa41e166d24a01a8141c7c8f0568f0",
-    },
-    message: "Hello",
-    time: "11:30",
-    isCurrentUser: true,
-  },
-  // Add more messages as needed
 ];
 
 export const ChatView = () => {
@@ -131,20 +82,27 @@ export const ChatView = () => {
     setMessages(initialMessages);
   }, []);
 
-  // Load messages from localStorage on component mount
   useEffect(() => {
-    const savedMessages = localStorage.getItem("chatMessages");
-    if (savedMessages) {
-      setMessages(JSON.parse(savedMessages));
+    try {
+      const savedMessages = localStorage.getItem("chatMessages");
+      if (savedMessages) {
+        setMessages(JSON.parse(savedMessages));
+      }
+    } catch (error) {
+      // console.error("Failed to load messages from localStorage:", error);
+      setMessages([]);
     }
   }, []);
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem("chatMessages", JSON.stringify(messages));
+    try {
+      localStorage.setItem("chatMessages", JSON.stringify(messages));
+    } catch (error) {
+      // console.error("Failed to save messages to localStorage:", error);
+    }
   }, [messages]);
 
-  // Function to add a new message
   // Function to add a new message
   const handleSendMessage = (newMessage, file) => {
     setMessages((prevMessages) => ({
@@ -205,13 +163,12 @@ export const ChatView = () => {
       <div className="self-center px-16 max-md:px-5 !h-screen !max-h-screen pt-[165px] w-full md:px-[88px] max-md:max-w-full gap-x-2 md:gap-x-[27px] flex">
         <div className="flex flex-grow flex-col w-[20%] sm:w-[31%] max-md:ml-0 max-md:w-full overflow-y-scroll overflow-x-hidden scrollbar-hide ">
           <div className="flex flex-col justify-center items-center text-black max-md:mt-7">
-            {contacts.map((contact, index) => (
-              <ContactCard
-                key={index}
-                contact={contact}
-                isSelected={contact.id === selectedContact}
-                onSelect={setSelectedContact}
-              />
+            {contacts.map((contact) => (
+                <ContactCard
+                  contact={contact}
+                  isSelected={contact.id === selectedContact}
+                  onSelect={setSelectedContact}
+                />
             ))}
           </div>
         </div>
@@ -241,9 +198,8 @@ export const ChatView = () => {
             className="flex flex-col w-full max-md:mt-7 max-md:max-w-full bg-[#E4FFF2] !h-[calc(100%-95px)]  md:!h-[calc(100%-145px)] scrollbar-hide px-[38px] mt-[90px] pt-20 md:pt-16 pb-3 overflow-y-auto scrollbar-hidden"
           >
             {/* <div className="flex-grow flex-col py-20 w-full bg-emerald-50 bg-opacity-50 overflow-y-auto"> */}
-            {messages?.[selectedContact]?.map((message) => (
+            {messages?.[selectedContact]?.map((message, index) => (
               <MessageBubble
-                key={message.id}
                 isCurrentUser={message.isCurrentUser}
                 message={message.message}
                 avatar={message.sender.avatar}
