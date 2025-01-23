@@ -1,0 +1,38 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Use the Node.js version your project requires
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test  # Replace with your test command if applicable
+
+      - name: Build project
+        run: npm run build  # Replace with your build command
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Add your Vercel token to GitHub Secrets
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}  # Add your Vercel Org ID to GitHub Secrets
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}  # Add your Vercel Project ID to GitHub Secrets
