@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ChatHeader = () => {
   return (
-    <header className="bg-white text-black w-full px-6 sm:px-16 py-2 sm:py-9">
+    <header className="bg-white text-black w-full px-6 sm:px-16 py-4 sm:py-9">
       <nav className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <svg
@@ -38,6 +38,13 @@ const ChatHeader = () => {
             </Link>
           </li>
         </ul>
+        <div className="flex items-center">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/92db7486d66107f215d23d8e6bb51246a98dc99141961b371c6b194c21f7d0d6?placeholderIfAbsent=true&apiKey=d7aa41e166d24a01a8141c7c8f0568f0"
+            alt="status"
+            className="object-fill rounded-full w-[30px] md:w-[45px] aspect-square"
+          />
+        </div>
       </nav>
     </header>
   );
