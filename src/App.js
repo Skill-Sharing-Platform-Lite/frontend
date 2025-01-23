@@ -5,6 +5,7 @@ import Header from "./Component/Header";
 
 import LoginPage from "./Component/LoginPage"; // You can create a HomePage component for this route
 import LoginForm from "./Component/LoginForm";
+import { ChatView } from "./Component/Chatbot/ChatView";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/about" element={<Header />}></Route>
       <Route path="/how-it-works" element={<Header />}></Route>
       <Route path="/contact"element={<Header />}></Route>
+      <Route path="/chat"element={<ChatView />}></Route>
       
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
       <Route path="/Sign Up" element={<LoginForm />} ></Route>
