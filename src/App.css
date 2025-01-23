@@ -36,3 +36,82 @@
     transform: rotate(360deg);
   }
 }
+.profile-container{
+width: 100vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.profile-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 97%;
+}
+.logout-btn{
+  padding:0.5rem 1.8rem;
+  color:black;
+  background: #00FF84;
+  font-weight: 500;
+border-radius: 10%;
+}
+.user-img{
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+.profile-images{
+  height: 15rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+}
+.banner-img{
+  width: 100%;
+  height:100%;
+}
+.user-part2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  position: absolute;
+  bottom: -23%;
+}
+.edit-btn{
+  background: #0085FE;
+  color: white;
+  height: 2.5rem;
+  width: 8rem;
+  position: relative;
+  bottom: -1.7rem;
+  text-align: center;}
+  .user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem;
+    margin-top: 5rem;
+    width: 30rem;
+  }
+  .connection{
+    background: rgb(221, 221, 221);
+   height: 5rem;
+   padding: 1.5rem 1.5rem;
+   width: fit-content;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+  flex-direction: column;
+   font-weight: 500;
+   border-radius: 10%;
+   font-size: 1.5rem;
+   margin: .7rem;
+  }

@@ -26,6 +26,7 @@ const Header = () => {
           <li><Link to="/about" className="hover:underline">About</Link></li>
           <li><Link to="/how-it-works" className="hover:underline">How It Works</Link></li>
           <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+          <li><Link to='/profile'>profile</Link></li>
         </ul>
       </nav>
     </header>
