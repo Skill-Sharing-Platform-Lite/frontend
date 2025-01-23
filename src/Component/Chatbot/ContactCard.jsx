@@ -6,19 +6,13 @@ export const ContactCard = ({ contact, isSelected, onSelect }) => {
     <button
       key={contact?.id}
       onClick={() => onSelect(contact.id)}
-      className={`flex flex-col !w-full max-w-sm ${
+      className={`flex flex-col !w-full max-w-sm border-0 cursor-pointer p-0 rounded-[10px] ${
         isSelected
-          ? "!bg-[#dbeeff] bg-opacity-[86]  rounded-[10px]"
-          : "bg-white"
+          ? "!bg-[#dbeeff] bg-opacity-[86] "
+          : "bg-white hover:bg-[#dbeeff]/50"
       }`}
-      style={{
-        border: "none",
-        background: "none",
-        cursor: "pointer",
-        padding: 0,
-      }}
     >
-      <div className="flex gap-5 justify-between py-5 pr-10 pl-5 rounded-xl w-full">
+      <div className="flex gap-5 justify-between pl-3 py-5 pr-3 sm:pr-10 sm:pl-5 rounded-xl w-full">
         <img
           src={contact.avatar}
           alt={`${contact.name}'s avatar`}

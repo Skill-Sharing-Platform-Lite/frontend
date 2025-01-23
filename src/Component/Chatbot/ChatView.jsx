@@ -160,15 +160,15 @@ export const ChatView = () => {
       <div className="absolute top-0 !w-full">
         <ChatHeader />
       </div>
-      <div className="self-center px-16 max-md:px-5 !h-screen !max-h-screen pt-[165px] w-full md:px-[88px] max-md:max-w-full gap-x-2 md:gap-x-[27px] flex">
-        <div className="flex flex-grow flex-col w-[20%] sm:w-[31%] max-md:ml-0 max-md:w-full overflow-y-scroll overflow-x-hidden scrollbar-hide ">
-          <div className="flex flex-col justify-center items-center text-black max-md:mt-7">
+      <div className="self-center px-16 max-md:px-5 !h-screen !max-h-screen pt-20 sm:pt-[165px] w-full md:px-[88px] max-md:max-w-full gap-x-2 md:gap-x-[27px] flex">
+        <div className="flex flex-grow flex-col w-[20%] max-w-[80px] sm:max-w-none sm:w-[31%] max-md:ml-0 max-md:w-full overflow-y-scroll overflow-x-hidden scrollbar-hide ">
+          <div className="flex flex-col justify-center items-center text-black">
             {contacts.map((contact) => (
-                <ContactCard
-                  contact={contact}
-                  isSelected={contact.id === selectedContact}
-                  onSelect={setSelectedContact}
-                />
+              <ContactCard
+                contact={contact}
+                isSelected={contact.id === selectedContact}
+                onSelect={setSelectedContact}
+              />
             ))}
           </div>
         </div>
@@ -195,7 +195,7 @@ export const ChatView = () => {
           </div>{" "}
           <div
             ref={messageContainerRef} // Attach the ref to the container
-            className="flex flex-col w-full max-md:mt-7 max-md:max-w-full bg-[#E4FFF2] !h-[calc(100%-95px)]  md:!h-[calc(100%-145px)] scrollbar-hide px-[38px] mt-[90px] pt-20 md:pt-16 pb-3 overflow-y-auto scrollbar-hidden"
+            className="flex flex-col w-full max-md:mt-7 max-md:max-w-full bg-[#E4FFF2] !h-[calc(100%-95px)]  md:!h-[calc(100%-145px)] scrollbar-hide px-3 sm:px-[38px] mt-[90px] pt-20 md:pt-16 pb-3 overflow-y-auto scrollbar-hidden"
           >
             {/* <div className="flex-grow flex-col py-20 w-full bg-emerald-50 bg-opacity-50 overflow-y-auto"> */}
             {messages?.[selectedContact]?.map((message, index) => (

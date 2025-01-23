@@ -28,7 +28,7 @@ export const MessageBubble = ({
         />
       )}
       <div
-        className={`flex flex-col grow shrink-0 px-7 py-4 min-w-[100px] max-w-[350px] rounded-[34px] ${
+        className={`flex flex-col grow shrink-0 px-7 py-4 min-w-[100px] max-w-[100px] sm:max-w-[350px] rounded-[34px] ${
           isCurrentUser ? "bg-[#00FF84]" : "bg-[#CDCDCD]"
         }`}
       >
@@ -99,7 +99,7 @@ export const MessageBubble = ({
           </>
         ) : (
           <div>
-            <p className="break-words whitespace-pre-wrap">{message}</p>
+            <p className="break-words whitespace-pre-wrap text-base md:text-lg">{message}</p>
           </div>
         )}
       </div>
