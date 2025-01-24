@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+
+import { Link } from "react-router-dom"; // Ensure Link is imported
+
 import { Link, useNavigate } from "react-router-dom";
+
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -97,29 +101,13 @@ const LoginForm = ({ onLogin }) => {
         <label htmlFor="password" className="block text-gray-700">
           Password
         </label>
-
-        {/* Inserted SVG icon here */}
-        <svg
-          width="20"
-          height="17"
-          viewBox="0 0 25 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute left-3 top-9"
-        >
-          <path
-            d="M19.0438 12H20.0446C20.5973 12 21.0454 12.4477 21.0454 13V23C21.0454 23.5523 20.5973 24 20.0446 24H4.03204C3.47932 24 3.03125 23.5523 3.03125 23V13C3.03125 12.4477 3.47932 12 4.03204 12H5.03282V11C5.03282 7.13401 8.16929 4 12.0383 4C15.9074 4 19.0438 7.13401 19.0438 11V12ZM17.0422 12V11C17.0422 8.23858 14.8019 6 12.0383 6C9.27473 6 7.03439 8.23858 7.03439 11V12H17.0422ZM11.0375 16V20H13.0391V16H11.0375Z"
-            fill="#D0D0D0"
-          />
-        </svg>
-
         <input
           id="password"
           type="password"
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 pl-10 w-full rounded-xl" // Adjusted for padding
+          className="border p-2 pl-10 w-full rounded-xl"
           required
         />
         {error && <p className="text-red-500 text-center mt-4 text-sm">{error}</p>}
@@ -221,11 +209,9 @@ const LoginForm = ({ onLogin }) => {
           </svg>
           <span className="text-black text-sm  ml-auto ">
             Sign in with Google
-          </span>{" "}
-          {/* Black text for Google sign-in */}
+          </span>
         </button>
       </div>
-     
       <p className="mt-4 text-center">
         Don’t have an account?{" "}
         <Link to="/sign-up" className="text-blue-600  hover:underline">

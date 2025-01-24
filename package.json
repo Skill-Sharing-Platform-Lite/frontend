@@ -10,18 +10,18 @@
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
+
     "socket.io-client": "^4.8.1",
     "tailwind-scrollbar-hide": "^2.0.0",
     "web-vitals": "^4.2.4"
-=======
+
     "web-vitals": "^4.2.4",
     "tailwind-scrollbar-hide": "^2.0.0",
     "chart.js": "^4.4.7",
     "react-chartjs-2": "^5.3.0",
     "react-icons": "^5.4.0"
 
->>>>>>> 34b4415a189e6a1b1c7deda07ea88f311065e7be
+
   },
   "scripts": {
     "start": "react-scripts start",
