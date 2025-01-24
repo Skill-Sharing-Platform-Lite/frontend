@@ -10,8 +10,8 @@ import { ChatView } from "./Component/Chatbot/ChatView";
 import ErrorBoundary from "./Component/Chatbot/ErrorBoundary";
 
 import Profile from "./Component/profile";
-
-
+import Connect from "./pages/MatchMaking";
+  
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -33,6 +33,7 @@ const App = () => {
           </ErrorBoundary>
         }
       ></Route>
+      <Route path="/connect" element={<Connect />} />
 
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
 

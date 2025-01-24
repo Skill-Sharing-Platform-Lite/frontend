@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { io } from "socket.io-client";
 
 export const MessageBubble = ({
   isCurrentUser,
@@ -7,6 +8,20 @@ export const MessageBubble = ({
   file,
   fileName,
 }) => {
+  const socket = io("http://localhost:5000"); // Connect to the backend
+
+  // Listen for new messages
+  useEffect(() => {
+    socket.on("receiveMessage", (newMessage) => {
+      // Update the UI with the new message
+      console.log("New message received:", newMessage);
+    });
+
+    return () => {
+      socket.off("receiveMessage"); // Clean up on unmount
+    };
+  }, []);
+
   return (
     <div
       key={message.id}
@@ -33,7 +48,7 @@ export const MessageBubble = ({
         }`}
       >
         {file ? (
-          <div className=" bg-white rounded-xl p-4">
+          <div className="bg-white rounded-xl p-4">
             <a
               href={file}
               download={fileName}
@@ -47,13 +62,11 @@ export const MessageBubble = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
                 <g
                   id="SVGRepo_tracerCarrier"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-
                 <g id="SVGRepo_iconCarrier">
                   {" "}
                   <path
@@ -72,7 +85,6 @@ export const MessageBubble = ({
                   />{" "}
                 </g>
               </svg>
-
               <p>{fileName}</p>
             </a>
           </div>

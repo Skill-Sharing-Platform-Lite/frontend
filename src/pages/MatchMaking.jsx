@@ -1,8 +1,8 @@
 
 
-import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
-import ProfileGrid from '../components/ProfileGrid';
+import Header from '../Component/Header';
+import SearchBar from '../Component/SearchBar';
+import ProfileGrid from '../Component/ProfileGrid';
 
 const MatchMaking = () => {
   return (

@@ -1,11 +1,28 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
-const ProfileCard = ({ name, description, imageUrl, buttonText }) => {
+const ProfileCard = ({ id, name, description, imageUrl, currentUserId }) => {
   const [isConnected, setIsConnected] = useState(false);
+  const [buttonText, setButtonText] = useState("Connect");
 
-  const handleConnect = () => {
-    setIsConnected(!isConnected);
+  const handleConnect = async () => {
+    try {
+      // Send a friend request to the backend
+      const response = await axios.post("http://localhost:5000/api/friendRequest/send", {
+        senderId: currentUserId, // ID of the current user (logged-in user)
+        receiverId: id, // ID of the profile being viewed
+      });
+
+      if (response.data) {
+        // Update the button text and disable it
+        setButtonText("Request Sent");
+        setIsConnected(true);
+      }
+    } catch (error) {
+      console.error("Error sending friend request:", error);
+      alert("Failed to send friend request. Please try again.");
+    }
   };
 
   return (
@@ -37,8 +54,9 @@ const ProfileCard = ({ name, description, imageUrl, buttonText }) => {
             isConnected ? "btn-success" : "btn-primary"
           }`}
           onClick={handleConnect}
+          disabled={isConnected}
         >
-          {isConnected ? "Connected" : buttonText || "connect"}
+          {buttonText}
         </button>
       </div>
 
@@ -80,10 +98,11 @@ const ProfileCard = ({ name, description, imageUrl, buttonText }) => {
 };
 
 ProfileCard.propTypes = {
+  id: PropTypes.string.isRequired, // ID of the profile being viewed
   name: PropTypes.string,
   description: PropTypes.string,
   imageUrl: PropTypes.string,
-  buttonText: PropTypes.string,
+  currentUserId: PropTypes.string.isRequired, // ID of the logged-in user
 };
 
 export default ProfileCard;

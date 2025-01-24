@@ -1,12 +1,12 @@
-// LoginForm.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Hook for navigation
 
   const validatePassword = (password) => {
     const minLength = 8;
@@ -28,6 +28,8 @@ const LoginForm = ({ onLogin }) => {
     e.preventDefault();
     setError("");
     setLoading(true);
+  
+    // Validate password
     if (!validatePassword(password)) {
       setError(
         "Password must be at least 8 characters long, and include uppercase letters, lowercase letters, numbers, and special characters."
@@ -35,16 +37,41 @@ const LoginForm = ({ onLogin }) => {
       setLoading(false);
       return;
     }
-
-    // Mock API call (replace with actual API call)
-    setTimeout(() => {
-      if (email === "user@example.com" && password === "password") {
-        onLogin("user");
+  
+    try {
+      // Log the request payload
+      console.log("Sending login request with:", { email, password });
+  
+      // Send login request to the backend
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      // Log the response status and data
+      console.log("Response status:", response.status);
+      const data = await response.json();
+      console.log("Response data:", data);
+  
+      if (response.ok) {
+        // Save the token to local storage
+        localStorage.setItem("token", data.token);
+  
+        // Call the onLogin callback (if provided)
+        if (onLogin) onLogin(data.token);
+  
+        // Redirect to the matching page
+        navigate("/matching");
       } else {
-        setError("Invalid credentials");
+        setError(data.message || "Invalid credentials");
       }
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("An error occurred. Please try again.");
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -95,7 +122,7 @@ const LoginForm = ({ onLogin }) => {
           className="border p-2 pl-10 w-full rounded-xl" // Adjusted for padding
           required
         />
-         {error && <p className="text-red-500 text-center mt-4 text-sm">{error}</p>}
+        {error && <p className="text-red-500 text-center mt-4 text-sm">{error}</p>}
         <div className="flex justify-between">
           <Link
             to="/forgot-password"
