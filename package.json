@@ -27,7 +27,6 @@
     "react-icons": "^5.4.0"
 
 
->>>>>>> 54dc86d303d78bebe5a1eb15dc515228ef5e199a
   },
   "scripts": {
     "start": "react-scripts start",
