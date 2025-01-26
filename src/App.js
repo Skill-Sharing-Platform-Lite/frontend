@@ -20,12 +20,12 @@ import RegisterPage from "./pages/RegisterPage";
 
 
 import Connect from "./pages/MatchMaking";
-<<<<<<< HEAD
+
 import Dashboard from "./pages/Dashbord";
-=======
+
   
 
->>>>>>> 54dc86d303d78bebe5a1eb15dc515228ef5e199a
+
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -72,17 +72,17 @@ const App = () => {
       <Route path="/connect" element={<Connect />} />
 
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
-<<<<<<< HEAD
+
        
       <Route path="/signup" element={<Dashboard />}/>
      
       <Route path="/dashboard" element={<Dashboard />}/>
-=======
+
 
 
       {/* Profile Route */}
       <Route path="/profile" element={<Profile />} />
->>>>>>> 54dc86d303d78bebe5a1eb15dc515228ef5e199a
+
 
       {/* Fallback Route (Optional) */}
       <Route path="*" element={<div>404 - Page Not Found</div>} />
