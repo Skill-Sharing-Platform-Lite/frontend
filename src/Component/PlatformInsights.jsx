@@ -1,14 +1,14 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-} from "chart.js";
+//import { Line } from "react-chartjs-2";
+// import {
+//   Chart as ChartJS,
+//   LineElement,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+// } from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+//ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
 const PlatformInsights = () => {
   const data = {
@@ -48,7 +48,7 @@ const PlatformInsights = () => {
   return (
     <div className="col-span-8 bg-gray-200 text-black p-6 rounded-lg shadow-lg">
       <h2 className="text-xl mb-4">Platform Insights</h2>
-      <Line data={data} options={options} />
+      {/* <Line data={data} options={options} /> */}
     </div>
   );
 };

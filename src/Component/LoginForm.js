@@ -62,7 +62,7 @@ const LoginForm = ({ onLogin }) => {
         if (onLogin) onLogin(data.token);
   
         // Redirect to the matching page
-        navigate("/matching");
+        navigate("/home");
       } else {
         setError(data.message || "Invalid credentials");
       }

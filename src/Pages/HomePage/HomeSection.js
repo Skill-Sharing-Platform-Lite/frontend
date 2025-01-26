@@ -1,7 +1,7 @@
 // src/components/HomeSection.js
 import React, { useState } from "react";
-import { FaRightLong } from "react-icons/fa6"; // Import an icon for the input section
-import HeroIcon from "../../assets/icons/hero.svg";
+//import { FaRightLong } from "react-icons/fa6"; // Import an icon for the input section
+//import HeroIcon from "../../assets/icons/hero.svg";
 
 const HomeSection = () => {
   const [getStarted, setGetStarted] = useState("Get Started");
@@ -27,14 +27,14 @@ const HomeSection = () => {
               <span className="text-black font-[600] text-lg">
                 Get It Started
               </span>{" "}
-              <FaRightLong />{" "}
+              {/* <FaRightLong />{" "} */}
             </button>
           </div>
         </div>
 
         <div className="flex-1 z-[-1] absolute right-[6rem] top-1/2 -translate-y-1/2">
           <img
-            src={HeroIcon}
+            // src={HeroIcon}
             className="w-[650px]"
             alt="People collaborating"
           />

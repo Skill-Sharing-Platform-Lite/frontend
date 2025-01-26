@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaHome, FaUsers, FaChartBar, FaCog } from "react-icons/fa";
-import { FaChartLine } from "react-icons/fa6";
+// import { FaChartLine } from "react-icons/fa6";
 import logo from "../assets/images.svg";
 
 const Sidebar = ({ setActiveSection }) => {

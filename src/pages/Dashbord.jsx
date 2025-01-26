@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/Header";
-import StatsCard from "../components/StatsCard";
-import RecentActivity from "../components/RecentActivity";
-import PlatformInsights from "../components/PlatformInsights";
+import Header from "../Component/Header";
+import StatsCard from "../Component/StatsCard";
+import RecentActivity from "../Component/RecentActivity";
+import PlatformInsights from "../Component/PlatformInsights";
 const Dashboard = () => {
   const stats = [
     {

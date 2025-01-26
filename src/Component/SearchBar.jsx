@@ -1,4 +1,4 @@
-
+//import { FaFilter, FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   return (
@@ -28,9 +28,7 @@ const SearchBar = () => {
           borderRadius: "50%",
         }}
       >
-        <span style={{ color: "#fff", fontSize: "18px", fontWeight: "bold" }}>
-          &#x25BC; {/* Placeholder for filter icon */}
-        </span>
+        {/* <FaFilter color="#fff" size={18} /> */}
       </div>
 
       {/* Input Field */}
@@ -63,14 +61,10 @@ const SearchBar = () => {
           cursor: "pointer",
         }}
       >
-        <span style={{ color: "#fff", fontSize: "18px", fontWeight: "bold" }}>
-          &#x1F50E; {/* Placeholder for search icon */}
-        </span>
+      {/* <FaSearch color="#fff" size={18} /> */}
       </button>
     </div>
   );
 };
-
-
 
 export default SearchBar;

@@ -4,15 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import Header from  "./Component/Header"
 import LoginPage from "./Component/LoginPage"; // You can create a HomePage component for this route
 import LoginForm from "./Component/LoginForm";
-import Home from "./Pages/HomePage/Home";
-import Detail from "./Pages/HomePage/Detail";
+import Home from "./pages/HomePage/Home";
+import Detail from "./pages/HomePage/Detail";
 
 import { ChatView } from "./Component/Chatbot/ChatView";
 import ErrorBoundary from "./Component/Chatbot/ErrorBoundary";
 
 import Profile from "./Component/profile";
 import Connect from "./pages/MatchMaking";
-  
+import Dashboard from "./pages/Dashbord";
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -39,9 +39,10 @@ const App = () => {
       <Route path="/connect" element={<Connect />} />
 
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
-
+       
+      <Route path="/signup" element={<Dashboard />}/>
      
-
+      <Route path="/dashboard" element={<Dashboard />}/>
 
       <Route path="/Sign Up" element={<LoginForm />} ></Route>
     <Route path="/profile" element={<Profile/>}/>

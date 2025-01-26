@@ -36,6 +36,13 @@ const Header = () => {
                             How It Works
                         </Link>
                     </li>
+                     <li><Link to="/chat" className="hover:underline">Chat</Link></li>
+                              <li className="nav-item">
+                                  <Link className="nav-link" to="/connect">
+                                    Connect
+                                  </Link>
+                                </li>
+                              <li><Link to='/profile'>profile</Link></li>
                     <li>
                         <Link to="#signin" className="hover:text-blue-500">
                             Sign In

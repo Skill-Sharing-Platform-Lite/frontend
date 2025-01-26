@@ -1,6 +1,6 @@
 // src/components/SearchBar.js
 import React, { useState, useRef, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
+// import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,7 +59,7 @@ const SearchBar = () => {
           className="absolute right-0 top-1/2 transform px-4 h-full -translate-y-1/2 bg-[#00ff84] rounded-r-lg p-1 cursor-pointer"
           onClick={handleSearch}
         >
-          <FaSearch className="text-white" size={20} />
+          {/* <FaSearch className="text-white" size={20} /> */}
         </button>
       </div>
       {showResults && results.length > 0 && (
