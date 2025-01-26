@@ -66,7 +66,7 @@ const App = () => {
 
       />
 
-      ></Route>
+      </Route>
       <Route path="/connect" element={<Connect />} />
 
       <Route path="/Forgot Password" element={<LoginPage />}></Route>
