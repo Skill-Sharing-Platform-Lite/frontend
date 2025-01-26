@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./Component/Header";
-import LoginPage from "./Component/LoginPage";
-import LoginForm from "./Component/LoginForm";
+
 
 import Header from  "./Component/Header"
 import LoginPage from "./Component/LoginPage"; // You can create a HomePage component for this route
